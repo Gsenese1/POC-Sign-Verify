@@ -190,7 +190,5 @@ After creating a Sysdig account we can alert third-party applications, this is d
 Using Cosign allows us to easily deploy a system where no external services are needed and we can set our first level of trust. Cosign, along with Connaisseur, ensures that images running in our Kubernetes clusters have been verified with automated alerts using Sysdig.
 
 
-<h3 align="left">Giuseppe Senese</h3>
-<h3 align="left">Cloud Architect</h3>
-<p align="left">
+<h3 align="left">Giuseppe Senese - Cloud Architect</h3>
 <a href="https://linkedin.com/in/linkedin.com/in/giusen" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin.com/in/giusen" height="30" width="40" /></a>
