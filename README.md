@@ -64,8 +64,6 @@ cosign generate-key-pair
 
 ```
 
-![Key par](1_install_cosign.png)
-
 
 ### 3. Publish Image in OCI registry
 
@@ -91,7 +89,7 @@ We should see an output like this:
 
 Check in OCI tags if the image is signed:
 
-![Image retag](3.png)
+
 
 
 ### 3. Signing the Image
@@ -106,11 +104,9 @@ docker tag busybox:latest gesenese1/img_verification:signed
 $(go env GOPATH)/bin/cosign sign --key cosign.key gesenese1/img_verification:signed
 
 ```
-![Image retag](4.1_signing_image.png)
 
 
 
-![Image retag](5_signed_image.png)
 
 If we try to verify the signature:
 
@@ -120,10 +116,6 @@ docker push gesenese1/img_verification:signed
 ```
 
 
-![Image retag](7_image_verification.png)
-
-
-![Image retag](8_dockerhub_image_signed.png)
 
 
 ### 4. Deploy Signed Image to Kubernetes
@@ -143,8 +135,6 @@ kubectl get all -n giuseppe
 ```
 
 
-![Deployment](10_deployment.png)
-
 Now let us enable the webhook in needed namespaces:
 
 
@@ -155,7 +145,7 @@ kubectl label --overwrite namespace/giuseppe2 cosigned.sigstore.dev/include=true
 
 With that the image fails as is not signed as this proof:
 
-![Deployment](12_unsigned_proof.png)
+
 
 
 
@@ -169,7 +159,7 @@ kubectl get all -n connaisseur
 
 ```
 
-![Creating Connaisseur](images/13_connaisseur_create.png)
+
 
 
 With this admission controller, we can decide which namespaces are going to be analyzed and also change between Alerting Only or Blocking the deployments.
@@ -181,19 +171,18 @@ Now we can run images signed with our previously generated cosign keys, we need 
 Looking into the documentation, there’s a section where it is explained how to add your own public key. It’s as easy as going to the values.yaml file provided in the repo and modifying the default validator by adding our publicKey, changing the type to cosign and removing the host specification. The next picture shows an example of a modified file.
 
 
-![YAML file modified](images/yaml.png)
+
 
 After that, deploy the chart with new values and you will be able to run you signed images.
 
 
-![Signed vs. Unsigned](images/14_signed_vs_unsigned.png)
 
 
 ## Integration with Sysdig
 
 After creating a Sysdig account we can alert third-party applications, this is done via Connaisseur notification template system that allows integration API, modifying the value.yaml file replacing Sysdig Secure token, so in every request there will be an event generated automatically.
 
-![Sysdig event triggered](images/17_event_triggered.png)
+
 
 
 ## Conclusion
