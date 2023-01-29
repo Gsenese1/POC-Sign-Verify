@@ -1,4 +1,4 @@
-# Proof of Concept on Secure OCI Image Signature Verification and Alerts Automation
+# Proof of Concept on Secure OCI Image Signature - Verification and Alerts Automation
 
 ## Project Description
 
