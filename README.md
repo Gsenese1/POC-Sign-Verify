@@ -88,11 +88,11 @@ docker push gesenese1/img_verification:latest
 
 We should see an output like this:
 
-![Image retag](images/2.png)
+![Image retag](2.png)
 
 Check in OCI tags if the image is signed:
 
-![Image retag](images/3.png)
+![Image retag](3.png)
 
 
 ### 3. Signing the Image
@@ -107,11 +107,11 @@ docker tag busybox:latest gesenese1/img_verification:signed
 $(go env GOPATH)/bin/cosign sign --key cosign.key gesenese1/img_verification:signed
 
 ```
-![Image retag](images/4.1_signing_image.png)
+![Image retag](4.1_signing_image.png)
 
 
 
-![Image retag](images/5_signed_image.png)
+![Image retag](5_signed_image.png)
 
 If we try to verify the signature:
 
@@ -121,10 +121,10 @@ docker push gesenese1/img_verification:signed
 ```
 
 
-![Image retag](images/7_image_verification.png)
+![Image retag](7_image_verification.png)
 
 
-![Image retag](images/8_dockerhub_image_signed.png)
+![Image retag](8_dockerhub_image_signed.png)
 
 
 ### 4. Deploy Signed Image to Kubernetes
@@ -144,7 +144,7 @@ kubectl get all -n giuseppe
 ```
 
 
-![Deployment](images/10_deployment.png)
+![Deployment](10_deployment.png)
 
 Now let us enable the webhook in needed namespaces:
 
@@ -156,7 +156,7 @@ kubectl label --overwrite namespace/giuseppe2 cosigned.sigstore.dev/include=true
 
 With that the image fails as is not signed as this proof:
 
-![Deployment](images/12_unsigned_proof.png)
+![Deployment](12_unsigned_proof.png)
 
 
 
