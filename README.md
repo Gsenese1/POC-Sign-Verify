@@ -207,4 +207,3 @@ Using Cosign allows us to easily deploy a system where no external services are 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://linkedin.com/in/linkedin.com/in/giusen" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="linkedin.com/in/giusen" height="30" width="40" /></a>
-📫 email me at **peppe.senese@gmail.com**
