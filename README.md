@@ -64,7 +64,7 @@ cosign generate-key-pair
 
 ```
 
-![Key par](images/1_install_cosign.png)
+![Key par](1_install_cosign.png)
 
 
 ### 3. Publish Image in OCI registry
