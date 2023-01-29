@@ -88,7 +88,6 @@ docker push gesenese1/img_verification:latest
 
 We should see an output like this:
 
-![Image retag](2.png)
 
 Check in OCI tags if the image is signed:
 
