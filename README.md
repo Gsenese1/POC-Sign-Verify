@@ -170,4 +170,34 @@ kubectl get all -n connaisseur
 
 ```
 
-Now we can run images 
+![Creating Connaisseur](images/13_connaisseur_create.png)
+
+
+With this admission controller, we can decide which namespaces are going to be analyzed and also change between Alerting Only or Blocking the deployments.
+
+By default, Connaisseur is configured to verify the signature for the official docker hub images and the project ones. We will configure it to also verify the ones signed with our generated keys.
+
+Now we can run images signed with our previously generated cosign keys, we need to modify the connaisseur deployment.
+
+Looking into the documentation, there’s a section where it is explained how to add your own public key. It’s as easy as going to the values.yaml file provided in the repo and modifying the default validator by adding our publicKey, changing the type to cosign and removing the host specification. The next picture shows an example of a modified file.
+
+
+![YAML file modified](images/yaml.png)
+
+After that, deploy the chart with new values and you will be able to run you signed images.
+
+
+![Signed vs. Unsigned](images/14_signed_vs_unsigned.png)
+
+
+## Integration with Sysdig
+
+After creating a Sysdig account we can alert third-party applications, this is done via Connaisseur notification template system that allows integration API, modifying the value.yaml file replacing Sysdig Secure token, so in every request there will be an event generated automatically.
+
+![Sysdig event triggered](images/17_event_triggered.png)
+
+
+## Conclusion
+
+Using Cosign allows us to easily deploy a system where no external services are needed and we can set our first level of trust. Cosign, along with Connaisseur, ensures that images running in our Kubernetes clusters have been verified with automated alerts using Sysdig.
+
