@@ -207,7 +207,7 @@ giuseppe@giuseppe-K53SV:~/cosign/connaisseur$ kubectl run giuseppe_img_signed --
 pod/giuseppe_img_signed created
 ```
 
-To prove that it wouldn’t work with an unsigned image you can deploy one coming from Docker hub though not signed with our authority (that will result with an error):
+To prove that it wouldn’t work with an unsigned image, you can deploy one coming from Docker hub although not signed with our authority (that should result with an error):
 
 ```bash
 giuseppe@giuseppe-K53SV:~/cosign/connaisseur$ kubectl run unsigned_img --image=docker.io/hello-world
@@ -216,15 +216,15 @@ giuseppe@giuseppe-K53SV:~/cosign/connaisseur$ kubectl run unsigned_img --image=d
 
 ## Integration with Sysdig
 
-After creating a Sysdig account we can alert third-party applications, and this is done via Connaisseur notification template system, which allows integration API modifying the value.yaml file replacing Sysdig Secure token. In every request there will be an event generated automatically.
+After creating a Sysdig account we can alert third-party applications and this is done via Connaisseur notification template system, which in turn allows integration API modifying the values.yaml file replacing Sysdig Secure token. In every request there will be an event generated automatically.
 
-We are here going to modify Connaisseur Values.yaml file to trigger events on Sysidig.
+We are here going to modify Connaisseur values.yaml file to trigger events on Sysidig, you will find the file in the repository.
 
 
 ## Conclusion
 
-Using Cosign allows us to easily deploy a system where no external services are needed so we can set our first level of trust. Cosign, along with Connaisseur, ensures that images running in our Kubernetes clusters have been verified with Sysdig’s automated alerts.
-Regarding additional automation tips on the full flow, consider that components deployed for signature and control have been already created as two Helm chart and it is not advisable to create a further wrapper.
+Using Cosign allows us to easily deploy a system where no external services are needed, so we can set our first level of trust. Cosign, along with Connaisseur ensure that images running in our Kubernetes clusters have been verified with Sysdig’s automated alerts.
+Regarding additional automation tips on the full flow, please consider that components deployed for signature and control have been already created as two Helm chart and it is not advisable to create a further wrapper.
 A longer and more accurate analysis could bring to adding further open-source tools to the flow creating a pipeline and additional Helm charts.
 
 
