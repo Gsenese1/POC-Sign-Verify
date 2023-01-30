@@ -160,9 +160,10 @@ kubectl create secret generic mysecret -n cosign-system \
 --from-literal=cosign.password=$MY_PASSWORD
 
 ```
-```bash
+
 We add the registry and install Helm inside our cluster:
 
+```bash
 helm repo add sigstore https://sigstore.github.io/helm-charts helm repo update
 
 helm install cosigned -n cosign-system sigstore/cosigned --devel –set cosign.secretKeyRef.name=mysecret
