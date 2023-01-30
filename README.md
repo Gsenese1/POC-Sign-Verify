@@ -18,6 +18,8 @@ The list of open-source tools with links I have used for this POC directly on my
 - **[Connaisseur](https://sse-secure-systems.github.io/connaisseur/v2.7.0/)**, to integrate container image signature verification into a clusters
 - **[Helm](https://helm.sh/)**, a package manager to automate Kubernetes packages deployment
 - **[Sysdig](https://sysdig.com/)**, a security, monitoring and compliance solution for Containers.
+- **[Busybox](https://busybox.net/about.html)**, to combine tiny versions of UNIX utilities into a single small executable.
+- **[Docker Hub](https://www.docker.com/products/docker-hub/)**, to use a large container images repository.
 
 <p align="left"> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://kubernetes.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="kubernetes" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>  </a> </p>
 
@@ -151,13 +153,36 @@ With that the image fails as is not signed as this proof:
 
 ### 5. Connaisseur as Admission Controller
 
-Let us get Connaisseur:
-
+We can deploy Cosign using the automation tool Helm chart to verify that only signed images can run into the cluster.
+In this example I deploy Cosign admission webhook inside giuseppe namespace:
 
 ```bash
-kubectl get all -n connaisseur
+
+Kubectl create namespace giuseppe
 
 ```
+
+Now we are going to create a Kubernetes generic secret using the cosign.pub, cosign.key and the password used to generate the signature.
+
+```bash
+
+kubectl create secret generic mysecret -n cosign-system \
+--from-file=cosign.pub=./cosign.pub \
+--from-file=cosign.key=./cosign.key \
+--from-literal=cosign.password=$MY_PASSWORD
+
+```
+
+We add the registry and install Helm inside our cluster:
+
+helm repo add sigstore https://sigstore.github.io/helm-charts helm repo update
+
+helm install cosigned -n cosign-system sigstore/cosigned --devel –set cosign.secretKeyRef.name=mysecret
+
+
+Let’s verify the installation result:
+
+kubectl get all -n giuseppe
 
 
 
