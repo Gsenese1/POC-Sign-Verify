@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This READMI file explains the main steps to run a proof of concept on container image signature and verification, it contains code snippets and links to guide you through it directly from a personal computer utilizing open-source tools.
+This README file explains the main steps to run a POC (proof of concept) on container image signature and verification, it contains code snippets and links to guide you through it directly from a personal computer utilizing open-source tools.
 
 The project demonstrates how any OCI container image can be signed and published in Kubernetes clusters blocking unsigned images in namespaces or sending warnings. Integration with Sysdig events UI will complete the process.
 
