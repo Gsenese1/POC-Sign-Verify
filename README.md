@@ -181,7 +181,7 @@ We enable the webhook in namespaces to run only images signed with Cosign using 
 kubectl label --overwrite namespace/giuseppe2 cosigned.sigstore.dev/include
 ```
 
-6. Connaisseur as Admission Controller
+### 6. Connaisseur as Admission Controller
 
 Let us install Connaisseur:
 
@@ -191,7 +191,7 @@ cd connaisseur
 helm install connaisseur helm --atomic --create-namespace --namespace connaisseur
 kubectl get all -n connaisser
 
-```bash
+```
 
 With Connaisseur, we can decide which namespaces are going to be analyzed and changed between alerting or directly blocking the deployments.
 By default, Connaisseur is configured to verify the signature for the official Docker hub images and the project ones. We configure it also to verify what is signed with our generated keys.
@@ -212,8 +212,6 @@ To prove that it wouldn’t work with an unsigned image you can deploy one comin
 ```bash
 giuseppe@giuseppe-K53SV:~/cosign/connaisseur$ kubectl run unsigned_img --image=docker.io/hello-world
 ```
-
-
 
 
 ## Integration with Sysdig
