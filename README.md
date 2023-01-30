@@ -70,7 +70,7 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg]
 sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 
-Update now apt package index with the new repository and install kubectl:
+Update now apt (advance packaging tool) package index with the new repository and install kubectl:
 
 ```bash
 sudo apt-get updatesudo apt-get install -y kubectl
