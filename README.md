@@ -107,9 +107,9 @@ Let us pull Busybox (a  common utility troubleshooting tool) from Docker and tag
 docker pull busybox
 docker tag busybox:latest gesenese1/img_verification:latest
 docker push gesenese1/img_verification:latest
+```
 
-
-After that check in OCI tags if the image is signed.
+After that verify in OCI tags if the image is signed.
 
 
 
