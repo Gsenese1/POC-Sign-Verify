@@ -221,6 +221,8 @@ After creating a Sysdig account we can alert third-party applications and this i
 We are here going to modify Connaisseur values.yaml file to trigger events on Sysidig, you will find the file in the repository though it is necessary to add your own par keys and Sysdig specific token.
 
 
+
+
 ## Conclusion
 
 Using Cosign allows us to easily deploy a system where no external services are needed, so we can set our first level of trust. Cosign, along with Connaisseur ensure that images running in our Kubernetes clusters have been verified with Sysdig’s automated alerts.
