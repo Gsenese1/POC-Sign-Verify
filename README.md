@@ -130,38 +130,12 @@ $(go env GOPATH)/bin/cosign sign --key cosign.key gesenese1/img_verification:sig
 ```
 
 
-
-
-If we try to verify the signature:
-
-```bash
-docker push gesenese1/img_verification:signed
-
-```
-
-
-
-
-### 4. Deploy Signed Image to Kubernetes
-
-We are going to sign the image using Cosign, although we can’t sign it without proper permissions and it is very important to have an image pushed into the registry before using Cosign. The command to sign is:
-
-
-```bash
-docker tag busybox:latest gesenese1/img_verification:signed
-$(go env GOPATH)/bin/cosign sign --key cosign.key gesenese1/img_verification:signed
-
-```
-
-
 Now that the image is signed let us verify the signature using the public key cosign.pub previously generated:
 
-
 ```bash
-cosign verify --key cosign.pub gsenese1/img_verification:signed | jq
+cosign verify --key cosign.pub gsenese1/img_verification:signed | jq .
 
 ```
-
 
 
 ### 5. Deploy Signed Image to Kubernetes
