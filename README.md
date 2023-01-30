@@ -1,10 +1,10 @@
-# Proof of Concept on Securing OCI Image Signature Verification
+# Proof of Concept on Container Image Signature Verification
 
 ## Project Description
 
 This READMI file explains the main steps of this POC test on container image security, it contains code snippets and links to guide you through it.
 
-The project demonstrates how any OCI container image can be signed and published in Kubernetes clusters, along with blocking unsigned images in namespaces or sending warnings.
+The project demonstrates how any OCI container image can be signed and published in Kubernetes clusters blocking unsigned images in namespaces or sending warnings.
 Integration with Sysdig events UI will complete the process.
 
 
