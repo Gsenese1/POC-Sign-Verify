@@ -218,7 +218,11 @@ giuseppe@giuseppe-K53SV:~/cosign/connaisseur$ kubectl run unsigned_img --image=d
 
 After creating a Sysdig account we can alert third-party applications and this is done via Connaisseur notification template system, which in turn allows integration API modifying the values.yaml file replacing Sysdig Secure token. In every request there will be an event generated automatically.
 
-We are here going to modify Connaisseur values.yaml file to trigger events on Sysidig, you will find the file in the repository though it is necessary to add your own par keys and Sysdig specific token.
+We are here going to modify Connaisseur values.yaml file to trigger events on Sysidig, you will find the file in the repository although it is necessary to add your own par keys and Sysdig specific token. Authorization token can be retrieved from the profile setting in Sysdig Secure. In every request, there will be an automatically generated event.
+
+Find agent configuration information here: https://docs.sysdig.com/en/docs/installation/sysdig-agent/agent-configuration/
+
+
 
 
 
