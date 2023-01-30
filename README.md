@@ -63,14 +63,14 @@ sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packag
 
 ```
 
-Add the Kubernetes apt repository:
+Add the Kubernetes apt (advance packaging tool) repository:
 
 ```bash
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg]
 sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 
-Update now apt (advance packaging tool) package index with the new repository and install kubectl:
+Update now apt package index with the new repository and install kubectl:
 
 ```bash
 sudo apt-get updatesudo apt-get install -y kubectl
